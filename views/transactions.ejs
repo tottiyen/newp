@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+
+</head>
+
+<body class="sidebar-mini bg">
+    <!-- Preloader -->
+    <% include partials/preloader %>
+    <!-- Preloader -->
+
+     <!-- ======================================
+    ******* Main Page Wrapper **********
+    ======================================= -->
+
+    <div class="main-container-wrapper">
+        <!-- Top bar area -->
+        <% include partials/topbararea %>
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Side Menu area -->
+            <% include partials/sidemenuarea %>
+
+            <!-- Main page -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="data-table-area">
+                        <div class="container-fluid">
+                            
+                            <div class="row">
+                                <div class="col-xl-12 mb-30">
+                                    <div class="card bg-boxshadow full-height">
+                                        <div class="card-header bg-transparent user-area d-flex align-items-center justify-content-between">
+                                            <h5 class="card-title mb-0">Total Deposit</h5>
+                                            <!-- Nav Tabs -->
+                                            <ul class="nav total-earnings nav-tabs mb-0" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active show" id="today-earnings-tab" data-toggle="tab" href="#today-earnings" role="tab" aria-controls="today-earnings" aria-selected="true">Today</a>
+                                                </li>
+                                                <!--<li class="nav-item">-->
+                                                <!--    <a class="nav-link mr-0" id="month-earnings-tab" data-toggle="tab" href="#month-earnings" role="tab" aria-controls="month-earnings" aria-selected="false">Month</a>-->
+                                                <!--</li>-->
+                                            </ul>
+                                        </div>
+    
+                                        <div class="card-body">
+                                            <div class="tab-content" id="userList">
+                                                <div class="tab-pane fade active show" id="today-earnings" role="tabpanel" aria-labelledby="today-earnings-tab">
+                                                    <ul class="total-earnings-list">
+                                                        <% docs.forEach(function(docs) { %>
+                                                            <li>
+                                                                <div class="author-info d-flex align-items-center">
+                                                                    <!--<div class="author-img mr-3">-->
+                                                                    <!--    <img src="img/member-img/team-4.jpg" alt="">-->
+                                                                    <!--</div>-->
+                                                                    <div class="author-text">
+                                                                        <h6 class="mb-0"><%= docs.name %></h6>
+                                                                        <p class="mb-0"><%= docs.status %></p>
+                                                                        <p class="mb-0"><%= docs.date %></p>
+                                                                    </div>
+                                                                </div>
+                                                                <span class="badge badge-outline-info badge-pill">$<%= docs.amount %></span>
+                                                            </li>
+                                                        <% }); %>
+                                                    </ul>
+                                                    
+                                                </div>
+    
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row-->
+                        </div>
+                    </div>
+
+                    <!-- Footer Area -->
+                    <% include partials/footerarea %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================
+    ********* Page Wrapper Area End ***********
+    ======================================= -->
+
+    <!-- Plugins Js -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bundle.js"></script>
+
+    <!-- Active JS -->
+    <script src="js/canvas.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/default-assets/active.js"></script>
+
+    <!-- Inject JS -->
+    <script src="js/default-assets/jquery.datatables.min.js"></script>
+    <script src="js/default-assets/datatables.bootstrap4.js"></script>
+    <script src="js/default-assets/datatable-responsive.min.js"></script>
+    <script src="js/default-assets/responsive.bootstrap4.min.js"></script>
+    <script src="js/default-assets/datatable-button.min.js"></script>
+    <script src="js/default-assets/button.bootstrap4.min.js"></script>
+    <script src="js/default-assets/button.html5.min.js"></script>
+    <script src="js/default-assets/button.flash.min.js"></script>
+    <script src="js/default-assets/button.print.min.js"></script>
+    <script src="js/default-assets/datatables.keytable.min.js"></script>
+    <script src="js/default-assets/datatables.select.min.js"></script>
+    <script src="js/default-assets/demo.datatable-init.js"></script>
+
+</body>
+
+</html>

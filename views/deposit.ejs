@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+
+</head>
+
+<body class="sidebar-mini bg">
+    <!-- Preloader -->
+    <% include partials/preloader %>
+    <!-- Preloader -->
+
+    <!-- ======================================
+    ******* Main Page Wrapper **********
+    ======================================= -->
+
+    <div class="main-container-wrapper">
+        <!-- Top bar area -->
+        <% include partials/topbararea %>
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Side Menu area -->
+            <% include partials/sidemenuarea %>
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                       <!--  <div class="card mb-30">
+                            <div class="card-body">
+                                <h5 class="card-title mb-2">Sirmon modal window</h5>
+
+                                <p class="mb-30">Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults. To creata a custom Sirmon modal all you have to do is to add <code>.inmodal</code> class to html modal element.
+                                    Modal contains title, content and footer
+                                </p> -->
+
+                                <div class=" align-items-left mb-30">
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+                                        Deposit
+                                    </button>
+                                </div>
+                                <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content animated bounceInRight">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title d-block">Modal title</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div id="demo"></div>
+                                                    <label for="amount" class="text-sm text-muted">Amount to deposit</label>
+                                                    <div class="input-group mb-4">
+                                                      <div class="input-group-prepend">
+                                                        <span class="input-group-text">$</span> 
+                                                      </div>
+                                                      <input type="number" id="amount" placeholder="0" class="form-control" name="amount">
+                                                    </div>
+                                                    <!--<input type="number" placeholder="amoount" required />-->
+                                                    <button type="submit" id="charge" class="btn btn-rounded btn-outline-info mb-2 mr-2">Fund now</button>
+                                                </form>    
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-xl">
+                                <!-- Card -->
+                                <div class="card box-margin">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <!-- Title -->
+                                                <h6 class="text-uppercase font-14">
+                                                    Wallet Balance
+                                                </h6>
+
+                                                <!-- Heading -->
+                                                <span class="font-24 text-dark mb-0">
+                                                    $<%= balance %>
+                                                </span>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <!-- Icon -->
+                                                <div class="icon">
+                                                    <img src="/img/bg-img/icon-8.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl">
+                                <!-- Card -->
+                                <div class="card box-margin">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <!-- Title -->
+                                                <h6 class="font-14 text-uppercase">
+                                                    Last Deposit
+                                                </h6>
+                                                <!-- Heading -->
+                                                <span class="font-24 text-dark mb-0">
+                                                    $<%= lastdeposit %>
+                                                </span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <!-- Icon -->
+                                                <div class="icon">
+                                                    <img src="/img/bg-img/icon-9.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl">
+                                <!-- Card -->
+                                <div class="card box-margin">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <!-- Title -->
+                                                <h6 class="font-14 text-uppercase">
+                                                    Total Deposit
+                                                </h6>
+                                                <!-- Heading -->
+                                                <span class="font-24 text-dark mb-0">
+                                                    $<%= totaldeposit %>
+                                                </span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <!-- Icon -->
+                                                <div class="icon">
+                                                    <img src="/img/bg-img/icon-9.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                     
+                        </div>
+                        <!-- / .row -->
+
+                        <div class="row">
+                            
+
+                            <!-- Projects of the Month -->
+                            <div class="col-xl-12 mb-30">
+                                <div class="card bg-boxshadow full-height">
+                                    <div class="card-header bg-transparent user-area d-flex align-items-center justify-content-between">
+                                        <h5 class="card-title mb-0">Total Deposit</h5>
+                                        <!-- Nav Tabs -->
+                                        <ul class="nav total-earnings nav-tabs mb-0" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active show" id="today-earnings-tab" data-toggle="tab" href="#today-earnings" role="tab" aria-controls="today-earnings" aria-selected="true">Today</a>
+                                            </li>
+                                            <!--<li class="nav-item">-->
+                                            <!--    <a class="nav-link mr-0" id="month-earnings-tab" data-toggle="tab" href="#month-earnings" role="tab" aria-controls="month-earnings" aria-selected="false">Month</a>-->
+                                            <!--</li>-->
+                                        </ul>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="tab-content" id="userList">
+                                            <div class="tab-pane fade active show" id="today-earnings" role="tabpanel" aria-labelledby="today-earnings-tab">
+                                                <ul class="total-earnings-list">
+                                                    <% docs.forEach(function(docs) { %>
+                                                        <li>
+                                                            <div class="author-info d-flex align-items-center">
+                                                                <!--<div class="author-img mr-3">-->
+                                                                <!--    <img src="img/member-img/team-4.jpg" alt="">-->
+                                                                <!--</div>-->
+                                                                <div class="author-text">
+                                                                    <h6 class="mb-0"><%= docs.name %></h6>
+                                                                    <p class="mb-0"><%= docs.status %></p>
+                                                                    <p class="mb-0"><%= docs.date %></p>
+                                                                </div>
+                                                            </div>
+                                                            <span class="badge badge-outline-info badge-pill">$<%= docs.amount %></span>
+                                                        </li>
+                                                    <% }); %>
+                                                </ul>
+                                                
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <!-- Footer Area -->
+                    <% include partials/footerarea %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Plugins Js -->
+    <% include partials/jsfiles %>
+    
+    <script type="text/javascript">
+            (function(){
+                $('#charge').click(function(event){
+                    event.preventDefault()
+                    console.log('working')
+
+                    var values = {
+                        amount: $('#amount').val().trim()
+                    }
+
+                    console.log(values)
+
+                    $.ajax({
+                        url : '/charge',
+                        type: 'POST',
+                        data : values,
+                        success: function(data, textStatus, jqXHR){
+                            console.log(JSON.stringify(data))
+                            if (data.confirmation != 'success'){
+                                var msg = data.data
+                                swal({
+                                  title: "Error!",
+                                  text: msg,
+                                  icon: "warning",
+                                  button: "Ok!",
+                                });
+                                return
+                            }
+                            if (data.confirmation === 'success'){
+                                console.log(data.data)
+
+                                var msg = "Please click <a href=" + data.data + ">here</a> to fund now"
+                                swal({
+                                  title: "Deposit!",
+                                  text: msg,
+                                  button: "Ok!",
+                                });
+
+                                return window.location.href = data.data
+                            }
+                            // if (!data) {
+                            //     console.log('investment successful')
+                            // }
+
+                            // window.location.href = '/'
+
+                        },
+                        error: function (jqXHR, textStatus, err){
+                            console.log('Error: ' + err.message)
+                        } 
+                    })
+
+                    // var values = {
+                    //     file: $('#input-id').val().trim()
+                    // }
+
+                    // console.log(values)
+                })
+            })()
+        </script>
+
+</body>
+
+</html>

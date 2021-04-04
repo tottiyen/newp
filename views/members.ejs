@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+
+</head>
+
+<body class="sidebar-mini bg">
+    <!-- Preloader -->
+    <% include partials/preloader %>
+    <!-- Preloader -->
+
+    <!-- ======================================
+    ******* Main Page Wrapper **********
+    ======================================= -->
+
+    <div class="main-container-wrapper">
+        <!-- Top bar area -->
+        <% include partials/topbararea %>
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Side Menu area -->
+            <% include partials/sidemenuarea %>
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-xl">
+                                <!-- Card -->
+                                <div class="card box-margin">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <!-- Title -->
+                                                <h6 class="text-uppercase font-14">
+                                                    Total Referral
+                                                </h6>
+
+                                                <!-- Heading -->
+                                                <span class="font-24 text-dark mb-0">
+                                                    <%= refference %>
+                                                </span>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <!-- Icon -->
+                                                <div class="icon">
+                                                    <img src="/img/bg-img/icon-8.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl">
+                                <!-- Card -->
+                                <div class="card box-margin">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <!-- Title -->
+                                                <h6 class="font-14 text-uppercase">
+                                                    Referral Earning
+                                                </h6>
+                                                <!-- Heading -->
+                                                <span class="font-24 text-dark mb-0">
+                                                    $<%= referralearning %>
+                                                </span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <!-- Icon -->
+                                                <div class="icon">
+                                                    <img src="/img/bg-img/icon-9.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                     
+                        </div>
+
+                        <div class="row">
+                            <!-- Single Contact Area -->
+                            <%
+                              var div = '';
+                              for (i = 0; i < docs.length; i++) {
+                              div += '<div class="col-md-6 col-lg-4 col-xl-3"><div class="card mb-30"><div class="card-body pb-0"><div class="single-conatct-area"><div class="conatct-thumb"><img src="' + docs[i].profilepicture + '" alt=""></div><div class="member-info text-center"><h6>' + docs[i].firstname + '</h6><p class="mb-1">' + docs[i].email + '</p></div></div></div></div></div>';
+                              }
+                            %>
+                            <% div %>
+                            <div class="col-xl-12 mb-30">
+                                <div class="card bg-boxshadow full-height">
+                                    <div class="card-header bg-transparent user-area d-flex align-items-center justify-content-between">
+                                        <h5 class="card-title mb-0">Referral Activity</h5>
+                                        <!-- Nav Tabs -->
+                                        <ul class="nav total-earnings nav-tabs mb-0" role="tablist">
+                                            <!--<li class="nav-item">-->
+                                            <!--    <a class="nav-link active show" id="today-earnings-tab" data-toggle="tab" href="#today-earnings" role="tab" aria-controls="today-earnings" aria-selected="true">Today</a>-->
+                                            <!--</li>-->
+                                            <!--<li class="nav-item">-->
+                                            <!--    <a class="nav-link mr-0" id="month-earnings-tab" data-toggle="tab" href="#month-earnings" role="tab" aria-controls="month-earnings" aria-selected="false">Month</a>-->
+                                            <!--</li>-->
+                                        </ul>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="tab-content" id="userList">
+                                            <div class="tab-pane fade active show" id="today-earnings" role="tabpanel" aria-labelledby="today-earnings-tab">
+                                                <ul class="total-earnings-list">
+                                                    <% docs.forEach(function(docs) { %>
+                                                        <li>
+                                                            <div class="author-info d-flex align-items-center">
+                                                                <!--<div class="author-img mr-3">-->
+                                                                <!--    <img src="img/member-img/team-4.jpg" alt="">-->
+                                                                <!--</div>-->
+                                                                <div class="author-text">
+                                                                    <h6 class="mb-0">Firstname: <%= docs.firstname %></h6>
+                                                                    <p class="mb-0">Email: <%= docs.email %></p>
+                                                                    <p class="mb-0">Total Investment: $<%= docs.totalinvestment %></p>
+                                                                    <p class="mb-0">Total Deposit: $<%= docs.totaldeposit %></p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    <% }); %>
+                                                </ul>
+                                                
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Area -->
+                    <div class="container-fluid">
+                        <% include partials/footerarea %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Plugins Js -->
+    <% include partials/jsfiles %>
+
+</body>
+
+</html>

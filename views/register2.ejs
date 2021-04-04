@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+
+    <title>premium-mining - Online bitcoin investment platform</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img//kryplogo2.png">
+
+    <!-- Master Stylesheet CSS -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <script src="//code.tidio.co/tezqwgyqkbzuiirshrnsdlcxiswjuzoy.js" async></script>
+
+</head>
+
+<body class="login-area">
+   <!-- Preloader -->
+    <div id="preloader-area">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- Preloader -->
+
+    <!-- ======================================
+    ******* Page Wrapper Area Start **********
+    ======================================= -->
+    <div class="main-content- h-100vh">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="hero">
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                </div>
+                <div class="col-md-8 col-lg-6">
+                    <!-- Middle Box -->
+                    <div class="middle-box">
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <h4 class="font-24 mb-30">Create account.</h4>
+
+                                <form>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="firstname">First Name</label>
+                                                <input class="form-control" type="text" id="firstname" name="firstname" placeholder="First name">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="lastname">Last Name</label>
+                                                <input class="form-control" type="text" id="lastname" name="lastname" placeholder="Last name" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="email">Email address</label>
+                                        <input class="form-control" type="email" name="email" id="email"  placeholder="Enter your email">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input class="form-control" type="text" name="username" id="username"  placeholder="Username">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input class="form-control" type="password"  name="password" id="password" placeholder="Enter your password">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="password">Retype Password</label>
+                                        <input class="form-control" type="password"  name="password2" id="password2" placeholder="Retype your password">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="password">Referrence ID(OPTIONAL)</label>
+                                        <input class="form-control" type="text"  name="referral" id="referral" value="<%= refferal %>" placeholder="Referrence">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="btc">Bitcoin Address</label>
+                                        <input class="form-control" type="text"  name="btc" id="btc" placeholder="">
+                                    </div>
+
+                                    <div class="form-group mb-0 mt-15">
+                                        <button class="btn btn-primary btn-block" id="regsubmit" type="submit">Create my account</button>
+                                    </div>
+
+                                    <div class="text-center mt-15"><span class="mr-2 font-13">Already have an account?</span><a class="font-13" href="/login">Sign in</a></div>
+
+                                </form>
+
+                                <!-- end card -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================
+    ********* Page Wrapper Area End ***********
+    ======================================= -->
+
+    <!-- Plugins  Js -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bundle.js"></script>
+
+    <!-- Active JS -->
+    <script src="/js/default-assets/active.js"></script>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script type="text/javascript">
+        (function(){
+            $('#regsubmit').click(function(event){
+                event.preventDefault()
+                console.log('working')
+
+                var values = {
+                    firstname: $('#firstname').val().trim(),
+                    lastname: $('#lastname').val().trim(),
+                    email: $('#email').val().trim(),
+                    username: $('#username').val().trim(),
+                    password: $('#password').val().trim(),
+                    password2: $('#password2').val().trim(),
+                    referral: $('#referral').val().trim(),
+                    btc: $('#btc').val().trim()
+                }
+
+                console.log(values)
+
+                $.ajax({
+                    url : '/register',
+                    type: 'POST',
+                    data : values,
+                    success: function(data, textStatus, jqXHR){
+                        console.log(JSON.stringify(data))
+                        if (data.confirmation != 'success'){
+                            var msg = data.data
+                            swal({
+                              title: "Error!",
+                              text: msg,
+                              icon: "warning",
+                              button: "Ok!",
+                            });
+                            // alert('Error: ' + data.message)
+                            // console.log(msg)
+                            return
+                        }
+                        if (data.confirmation === 'success'){
+                            var msg = data.data
+                            swal({
+                              title: "Registration successful!",
+                              text: "Welcome",
+                              icon: "success",
+                              button: "Ok!",
+                            });
+                            
+                            return window.location.href = '/regsuccess/' + msg
+                        }
+
+                    },
+                    error: function (jqXHR, textStatus, err){
+                        console.log('Error: ' + err.message)
+                    } 
+                })
+
+            })
+        })()
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+
+</head>
+
+<body class="sidebar-mini bg">
+    <!-- Preloader -->
+    <% include partials/preloader %>
+    <!-- Preloader -->
+
+    <!-- ======================================
+    ******* Main Page Wrapper **********
+    ======================================= -->
+
+    <div class="main-container-wrapper">
+        <!-- Top bar area -->
+        <% include partials/topbararea %>
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Side Menu area -->
+            <% include partials/sidemenuarea %>
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <a href="/members">
+                            <button type="button" class="btn btn-rounded btn-outline-primary mb-4 mr-2">View Referred users</button>
+                        </a>
+                        
+
+                        <div class="row">
+                            <div class="col-sm-12 col-xl-12 mb-30">
+                                <div class="widget-head-box bg-chok p-20 full-height">
+                                    <div class="widget-head-small-text">
+                                        <h4 class="text-white">$ <%= referralearning %></h4>
+                                        <!-- <h6 class="mb-0 text-white">Your Affiliate Link: <strong><u><%= referrallink %></strong></u></h6> -->
+                                        <p class="text-white">Your Affiliate Link: <strong><u><span class="text-info"><%= referrallink %></span></strong></u></p>
+                                        <h6 class="text-white mb-4">Earn up to <span class="text-success">5%</span> commission with our Affiliate program</h6>
+                                        <ul>
+                                            <li>
+                                                <p class="text-white">Copy your referral link - <span class="text-info"><%= referrallink %></span></p>
+                                            </li>
+                                            <li>
+                                                <p class="text-white">Share with your friends</span></p>
+                                            </li>
+                                            <li>
+                                                <p class="text-white">Get 5% commission when anyone registers with your link and makes an investment of $100 or above</span></p>
+                                            </li>
+                                        </ul>
+                                        <!-- Icon -->
+                                        <div class="widget-bg-icon text-right">
+                                            <i class="ti-gift text-white" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                     
+                        </div>
+                        <!-- / .row -->
+
+                        <div class="row">
+                            
+
+                            <!-- Projects of the Month -->
+                            <div class="col-xl-12 mb-30">
+                                <div class="card bg-boxshadow full-height">
+                                    <div class="card-header bg-transparent user-area d-flex align-items-center justify-content-between">
+                                        <h5 class="card-title mb-0">Recent Transactons</h5>
+                                        <!-- Nav Tabs -->
+                                        <ul class="nav total-earnings nav-tabs mb-0" role="tablist">
+                                            <!--<li class="nav-item">-->
+                                            <!--    <a class="nav-link active show" id="today-earnings-tab" data-toggle="tab" href="#today-earnings" role="tab" aria-controls="today-earnings" aria-selected="true">Today</a>-->
+                                            <!--</li>-->
+                                            <!--<li class="nav-item">-->
+                                            <!--    <a class="nav-link mr-0" id="month-earnings-tab" data-toggle="tab" href="#month-earnings" role="tab" aria-controls="month-earnings" aria-selected="false">Month</a>-->
+                                            <!--</li>-->
+                                        </ul>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="tab-content" id="userList">
+                                            <div class="tab-pane fade active show" id="today-earnings" role="tabpanel" aria-labelledby="today-earnings-tab">
+                                                <ul class="total-earnings-list">
+                                                    <% docs.forEach(function(docs) { %>
+                                                        <li>
+                                                            <div class="author-info d-flex align-items-center">
+                                                                <!--<div class="author-img mr-3">-->
+                                                                <!--    <img src="img/member-img/team-4.jpg" alt="">-->
+                                                                <!--</div>-->
+                                                                <div class="author-text">
+                                                                    <h6 class="mb-0"><%= docs.detail %></h6>
+                                                                    <p class="mb-0">User: <strong><%= docs.user %></p></strong>
+                                                                    <p class="mb-0"><%= docs.date %></p>
+                                                                </div>
+                                                            </div>
+                                                            <a href="/members"><span class="badge badge-outline-info badge-pill">view</span></a>
+                                                        </li>
+                                                    <% }); %>
+                                                </ul>
+                                                
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <!-- Footer Area -->
+                    <% include partials/footerarea %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Plugins Js -->
+    <% include partials/jsfiles %>
+
+</body>
+
+</html>

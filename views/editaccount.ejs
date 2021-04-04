@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+
+</head>
+
+<body class="sidebar-mini bg">
+    <!-- Preloader -->
+    <% include partials/preloader %>
+    <!-- Preloader -->
+
+    <!-- ======================================
+    ******* Main Page Wrapper **********
+    ======================================= -->
+
+    <div class="main-container-wrapper">
+        <!-- Top bar area -->
+        <% include partials/topbararea %>
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Side Menu area -->
+            <% include partials/sidemenuarea %>
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-12 col-md-12">
+                                <div class="profile-crm-area">
+                                    <div class="card mb-30">
+                                        <div class="card-body">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-tabs profile-tab" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active show" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="basic" aria-selected="true">Overview</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="invoice-tab" data-toggle="tab" href="#invoice" role="tab" aria-controls="invoice" aria-selected="false">Edit Profile</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content" id="myTabContent">
+                                                <!--first tab-->
+                                                <div class="tab-pane fade active show" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+                                                    <div class="card-body">
+                                                        <div class="row profile-row">
+                                                            <div class="col-xs-5 col-sm-3">
+                                                                <span class="profile-cat">First Name</span>
+                                                            </div>
+                                                            <div class="col-xl-7 col-sm-9">
+                                                                <span class="profile-info"><%= firstname %></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row profile-row">
+                                                            <div class="col-xs-5 col-sm-3">
+                                                                <span class="profile-cat">Last Name</span>
+                                                            </div>
+                                                            <div class="col-xl-7 col-sm-9">
+                                                                <span class="profile-info"><%= lastname %></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row profile-row">
+                                                            <div class="col-xs-5 col-sm-3">
+                                                                <span class="profile-cat">Username</span>
+                                                            </div>
+                                                            <div class="col-xl-7 col-sm-9">
+                                                                <span class="profile-info"><%= username %></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row profile-row">
+                                                            <div class="col-xs-5 col-sm-3">
+                                                                <span class="profile-cat">Email</span>
+                                                            </div>
+                                                            <div class="col-xl-7 col-sm-9">
+                                                                <span class="profile-info"><%= email %></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row profile-row">
+                                                            <div class="col-xs-5 col-sm-3">
+                                                                <span class="profile-cat">Referrence</span>
+                                                            </div>
+                                                            <div class="col-xl-7 col-sm-9">
+                                                                <span class="profile-info"><%= referral %></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row profile-row">
+                                                            <div class="col-xs-5 col-sm-3">
+                                                                <span class="profile-cat">Referral Link</span>
+                                                            </div>
+                                                            <div class="col-xl-7 col-sm-9">
+                                                                <span class="profile-info"><%= referrallink %></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row profile-row">
+                                                            <div class="col-xs-5 col-sm-3">
+                                                                <span class="profile-cat">Date</span>
+                                                            </div>
+                                                            <div class="col-xl-7 col-sm-9">
+                                                                <span class="profile-info"><%= date %></span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <!--second tab-->
+                                                <div class="tab-pane fade" id="invoice" role="tabpanel" aria-labelledby="invoice-tab">
+                                                    <div class="card card-body">
+                                                        <h4 class="card-title">Edit Profile</h4>
+                                                        <div class="text-center">
+                                                            <a class="user-avatar mr-2 mb-4" href="#"><img src="<%= profilepicture %>" alt="user" height="25px" class="thumb-xl mb-2 rounded-circle"> </a>
+                                                            <div class=" mb-30">
+                                                                <button type="button" class="btn btn-rounded btn-outline-info mb-2 mr-2" data-toggle="modal" data-target="#myModal">
+                                                                    Edit Image
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content animated bounceInUp">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title d-block">Edit Profile Picture</h5>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="/pp" method="post" enctype="multipart/form-data"">
+                                                                                <div class="fallback">
+                                                                                    <input name="image" type="file" required />
+                                                                                </div>
+
+                                                                                <!--<div class="dz-message needsclick">-->
+                                                                                <!--    <i class="h1 text-muted dripicons-cloud-upload"></i>-->
+                                                                                <!--    <h4>Drop files here or click to upload.</h4>-->
+                                                                                <!--    <span class="text-muted font-13">(Click on submit when you are done.)</span>-->
+                                                                                <!--</div>-->
+                                                                                <div class="clearfix text-center mt-3">
+                                                                                    <button type="submit" class="btn btn-info"> <i class="mdi mdi-send mr-1"></i> Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                            
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-xs-12">
+
+                                                                <form>
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputPassword11">Password</label>
+                                                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputPassword12">Password</label>
+                                                                        <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirm Password">
+                                                                    </div>
+                                                                    <button type="submit" id="update" class="btn btn-primary mr-2">Submit</button>
+                                                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Footer Area -->
+                    <% include partials/footerarea %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Plugins Js -->
+    <% include partials/jsfiles %>
+    
+    <script type="text/javascript">
+        (function(){
+            $('#update').click(function(event){
+                event.preventDefault()
+                console.log('investnow1')
+
+                var values = {
+                    password: $('#password').val().trim(),
+                    password2: $('#password2').val().trim()
+                }
+
+                console.log(values)
+
+                $.ajax({
+                    url : '/password',
+                    type: 'POST',
+                    data : values,
+                    success: function(data, textStatus, jqXHR){
+                        console.log(JSON.stringify(data))
+                        if (data.confirmation != 'success'){
+                            var msg = data.data
+                            swal({
+                              title: "Error!",
+                              text: msg,
+                              icon: "warning",
+                              button: "Ok!",
+                            });
+                            return
+                        }
+                        if (data.confirmation === 'success'){
+                            console.log(data.data)
+
+                            var msg = data.data
+                            swal({
+                              title: "successful!",
+                              text: msg,
+                              icon: "success",
+                              button: "Ok!",
+                            });
+                            return 
+                        }
+                        // if (!data) {
+                        //     console.log('investment successful')
+                        // }
+
+                        // window.location.href = '/'
+
+                    },
+                    error: function (jqXHR, textStatus, err){
+                        console.log('Error: ' + err.message)
+                    } 
+                })
+            })
+        })()
+    </script>
+
+</body>
+
+</html>
